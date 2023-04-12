@@ -1,5 +1,5 @@
-import { auth, db } from "../firebase/firebaseConfig";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/firebaseConfig";
+import {signInWithEmailAndPassword } from "firebase/auth";
 import { authLogOut, loginUser } from "../actions/auth";
 
 export const login = (email, password) => {
