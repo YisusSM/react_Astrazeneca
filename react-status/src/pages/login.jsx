@@ -3,6 +3,9 @@ import { useForm } from '@/hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { login } from '@/helpers/auth';
+import { auth } from "../firebase/firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from 'react';
 
 export default function Login() {
   const router = useRouter();
@@ -12,8 +15,15 @@ export default function Login() {
     lEmail: 'jesussm_0001@hotmail.com',
     lPassword: 'notiene'
   });
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+       router.push('/'); 
+      }
+    });
+  }, [])
+
   if (uid) {
-    router.push('/');
     return null
   }
   const { lEmail, lPassword } = formLoginValues;
