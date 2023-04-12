@@ -1,27 +1,14 @@
 
 import Link from 'next/link'
-import { useDispatch, useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import LoadingScreen from './loaded/Loaded';
-import { auth } from "../firebase/firebaseConfig";
-import { onAuthStateChanged } from "firebase/auth";
-import { loginUser } from '@/actions/auth';
+import { PrivateRoute } from '@/components/PrivateRoute';
+
 
 export default function Home() {
-  const router = useRouter();
-  const dispatch = useDispatch();
+
   const { uid } = useSelector(state => state.auth);
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user == null) {
-        router.push('/login');
-      }
-      else {
-        dispatch(loginUser(user.uid, user.email))
-      }
-    });
-  }, [])
+  
   if (uid == null) {
     return <LoadingScreen />
   }
@@ -32,3 +19,4 @@ export default function Home() {
 
   )
 }
+Home.Auth = PrivateRoute

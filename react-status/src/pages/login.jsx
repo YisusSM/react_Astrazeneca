@@ -1,38 +1,27 @@
 
 import { useForm } from '@/hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
 import { login } from '@/helpers/auth';
-import { auth } from "../firebase/firebaseConfig";
-import { onAuthStateChanged } from "firebase/auth";
-import { useEffect } from 'react';
+import { PublicRoute } from '@/components/PublicRoute';
 
 export default function Login() {
-  const router = useRouter();
   const dispatch = useDispatch();
-  const { uid } = useSelector(state => state.auth);
   const [formLoginValues, handleLoginInputChange] = useForm({
     lEmail: 'jesussm_0001@hotmail.com',
     lPassword: 'notiene'
   });
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-       router.push('/'); 
-      }
-    });
-  }, [])
-
-  if (uid) {
-    return null
-  }
+  const { uid } = useSelector(state => state.auth)
   const { lEmail, lPassword } = formLoginValues;
+
   const handleLogin = (e) => {
     e.preventDefault();
     console.log(lEmail)
     dispatch(login(lEmail, lPassword));
   }
 
+  if (uid) {
+    return null
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -73,4 +62,4 @@ export default function Login() {
     </div>
   )
 }
-
+Login.Auth = PublicRoute
