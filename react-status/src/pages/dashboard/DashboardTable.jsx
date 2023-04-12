@@ -22,9 +22,27 @@ export default function DashboardTable() {
     red: 'bg-red-600'
   }
 
+  const drawServiceHistory = (service) => {
+    return service.history.map((h, index) => {
+      return (
+        <div key={index}>
+          <h4>Date { h.date }</h4>
+          <h4>Reason { h.reason }</h4>
+          <h4>System status { h.system_status }</h4>
+          <h4>Status { h.status }</h4>
+          <h4>Inciden Number { h.incident_number }</h4>
+        </div>
+      )
+    })
+  }
+
+  const onRowClick = (row) => {
+    console.log(row)
+  }
+
   const drawItems = servicesByGroup.map(service => {
     return (
-      <tr key={ service.name } className="border-b border-neutral-100 bg-neutral-50 text-neutral-800 dark:bg-neutral-50">
+      <tr onClick={ () => {onRowClick(service.name) } } key={ service.name } className="border-b border-neutral-100 hover:bg-neutral-200 bg-neutral-50 text-neutral-800 dark:bg-neutral-50">
         <td className="whitespace-nowrap px-6 py-4 font-medium">{ service.name }</td>
         <td className="whitespace-nowrap px-6 py-4">{ service.group }</td>
         <td className="whitespace-nowrap px-6 py-4 flex justify-center">
@@ -36,31 +54,38 @@ export default function DashboardTable() {
   })
 
   return (
-    <div className="flex flex-col overflow-x-auto">
-      <div className="sm:-mx-6 lg:-mx-6">
-        <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-          <div className="overflow-x-auto">
-            <table className="min-w-full text-center text-sm font-light">
-              <thead className="border-b font-medium dark:border-neutral-500">
-                <tr>
-                  <th scope="col" className="px-6 py-4">
-                    Name
-                  </th>
-                  <th scope="col" className="px-6 py-4">
-                    Group
-                  </th>
-                  <th scope="col" className="px-6 py-4">
-                    System Status
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                { drawItems }
-              </tbody>
-            </table>
+    <>
+    <div className="bg-white px-6 lg:flex h-screen w-full flex-col lg:items-center lg:justify-between">
+      <div className="min-w-0 flex-1">
+        <h2 className="pt-2 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Dashboard</h2>
+      </div>
+      <div className="flex flex-col overflow-x-auto h-screen w-full">
+        <div className="sm:-mx-6 lg:-mx-6">
+          <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-center text-sm font-light">
+                <thead className="border-b font-medium dark:border-neutral-500">
+                  <tr>
+                    <th scope="col" className="px-6 py-4">
+                      Name
+                    </th>
+                    <th scope="col" className="px-6 py-4">
+                      Group
+                    </th>
+                    <th scope="col" className="px-6 py-4">
+                      System Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  { drawItems }
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    </>
   )
 }
