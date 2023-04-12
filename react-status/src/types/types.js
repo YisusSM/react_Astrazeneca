@@ -1,5 +1,5 @@
 //objeto para centralizar todos los tipos de acciones
- 
+
 export const types = {
 
     uiOpenModal: '[ui] Open Modal',
@@ -21,8 +21,9 @@ export const types = {
     authLogin: '[auth] Loign',
     authStartRegister: '[auth] Start Register',
     authStartJWTRenew: '[auth] Start Token Renew',
-    authLogout: '[auth] Logout', 
+    authLogout: '[auth] Logout',
 
-
+    getAllServices: '[services] getting all services',
+    getServicesByGroup: '[services] getting services by group'
 
 }
