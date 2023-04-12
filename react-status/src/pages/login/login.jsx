@@ -14,6 +14,7 @@ export default function Login() {
   });
   if (uid) {
     router.push('/');
+    return null
   }
   const { lEmail, lPassword } = formLoginValues;
   const handleLogin = (e) => {
