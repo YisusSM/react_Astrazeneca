@@ -24,6 +24,7 @@ export const types = {
     authLogout: '[auth] Logout',
 
     getAllServices: '[services] getting all services',
-    getServicesByGroup: '[services] getting services by group'
+    getServicesByGroup: '[services] getting services by group',
+    getServicesGroupInsight:'[services] Getting Groups Insight'
 
 }

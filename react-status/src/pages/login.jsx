@@ -19,7 +19,7 @@ export default function Login() {
     dispatch(login(lEmail, lPassword));
   }
 
-  if (uid) {
+  if (!uid) {
     return null
   }
 

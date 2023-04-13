@@ -13,3 +13,10 @@ export const saveServicesByGroup = (servicesByGroup) => ({
     servicesByGroup
   }
 })
+
+export const saveGroupsInsights = (getServicesGroupInsight) => ({
+  type: types.getServicesGroupInsight,
+  payload: {
+    getServicesGroupInsight
+  }
+})

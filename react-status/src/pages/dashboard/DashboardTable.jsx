@@ -1,7 +1,6 @@
 import { getServicesByGroup, listenStatus } from "@/helpers/axios"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import styles from '@/styles/dashboard.module.css'
 import { socket } from "@/helpers/socket"
 
 export default function DashboardTable() {
