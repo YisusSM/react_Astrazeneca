@@ -77,12 +77,10 @@ export default function Layout({ children }) {
                 <img
                   className="block h-8 w-auto lg:hidden"
                   src="https://th.bing.com/th/id/R.4faf3b550b7643cf9b9bce7895be80e5?rik=nQTXZ8OhNor56A&pid=ImgRaw&r=0"
-                  alt="Your Company"
                 />
                 <img
                   className="hidden h-8 w-auto lg:block"
                   src="https://th.bing.com/th/id/R.4faf3b550b7643cf9b9bce7895be80e5?rik=nQTXZ8OhNor56A&pid=ImgRaw&r=0"
-                  alt="Your Company"
                 />
               </div>
               <div className="hidden sm:ml-6 sm:block">
