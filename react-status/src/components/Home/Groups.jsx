@@ -22,34 +22,32 @@ export const Groups = () => {
         yellow: 'bg-yellow-400',
         red: 'bg-red-500'
     }
-    const groups = useCallback((getServicesGroupInsight ? Object.keys(getServicesGroupInsight).map(service => {
-        console.log(service)
-        const value = getServicesGroupInsight[service];
-        console.log(value, 'hey')
+    const groups = useCallback((getServicesGroupInsight ? getServicesGroupInsight.map(group => {
+        const insights = group.insights;
         return (
-            <div key={service} className="container mx-auto border-b border-neutral-100 bg-neutral-50 text-neutral-800 dark:bg-neutral-50 flex shadow-md hover:shadow-lg flex-col items-center max-md:flex-wrap">
-                <div className='flex flex-row-reverse w-full max-md:w-auto max-md:order-2'><span class=" material-symbols-outlined text-2xl pr-2 pt-2 max-md:text-2x1 cursor-pointer max-[400px]:text-4x1">
+            <div key={group.service} className="container mx-auto border-b border-neutral-100 bg-neutral-50 text-neutral-800 dark:bg-neutral-50 flex shadow-md hover:shadow-lg flex-col items-center max-md:flex-wrap">
+                <div className='flex flex-row-reverse w-full max-md:w-auto max-md:order-2'><span className=" material-symbols-outlined text-2xl pr-2 pt-2 max-md:text-2x1 cursor-pointer max-[400px]:text-4x1">
                     notifications
                 </span></div>
-                <Link className='flex justify-center flex-1 flex-col items-center text-center w-2/5 max-md:order-first' href={`/dashboard/dashboardTable/${service}`}>
-                    <h2 className="px-6 py-4 font-medium font-sans text-5xl font-semibold leading-tight tracking-normal antialiased text-xl max-[400px]:text-[9px] ">{service}</h2>
+                <Link className='flex justify-center flex-1 flex-col items-center text-center w-2/5 max-md:order-first' href={`/dashboard/dashboardTable/${group.group}`}>
+                    <h2 className="px-6 py-4 font-medium font-sans text-5xl font-semibold leading-tight tracking-normal antialiased text-xl max-[400px]:text-[9px] ">{group.group}</h2>
                 </Link>
-                <Link className="px-6 py-4 flex justify-center space-x-2.5 pt-10 cursor-pointer max-[400px]:pb-1  " href={`/dashboard/dashboardTable/${service}`}>
-                    {(value.red ? <div class="flex items-center flex-col">
-                        <div class="center relative inline-block select-none  rounded-lg bg-red-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-                            <div class="mt-px md:text-xs max-[400px]:text-[8px]">{value.red}</div>
+                <Link className="px-6 py-4 flex justify-center space-x-2.5 pt-10 cursor-pointer max-[400px]:pb-1  " href={`/dashboard/dashboardTable/${group.group}`}>
+                    {(insights.red ? <div className="flex items-center flex-col">
+                        <div className="center relative inline-block select-none  rounded-lg bg-red-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                            <div className="mt-px md:text-xs max-[400px]:text-[8px]">{insights.red}</div>
                         </div>
                         <span className='font-medium md:text-xs font-sans font-semibold text-xs max-[400px]:text-[7px]  '>Offline</span>
                     </div> : null)}
-                    {(value.yellow ? <div class="flex items-center flex-col">
-                        <div class="center relative inline-block select-none  rounded-lg bg-amber-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-                            <div class="mt-px md:text-xs max-[400px]:text-[8px]">{value.yellow}</div>
+                    {(insights.yellow ? <div className="flex items-center flex-col">
+                        <div className="center relative inline-block select-none  rounded-lg bg-amber-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                            <div className="mt-px md:text-xs max-[400px]:text-[8px]">{insights.yellow}</div>
                         </div>
                         <span className='font-medium md:text-xs font-sans font-semibold text-xsmax-[400px]:text-[7px]'>Issue</span>
                     </div> : null)}
-                    <div class="flex items-center flex-col">
-                        <div class="center relative inline-block select-none  rounded-lg bg-green-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
-                            <div class="mt-px md:text-xs max-[400px]:text-[8px]">{value.green}</div>
+                    <div className="flex items-center flex-col">
+                        <div className="center relative inline-block select-none  rounded-lg bg-green-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white">
+                            <div className="mt-px md:text-xs max-[400px]:text-[8px]">{insights.green}</div>
                         </div>
                         <span className='font-medium md:text-xs font-sans font-semibold text-xs max-[400px]:text-[7px]'>Online</span>
                     </div>
