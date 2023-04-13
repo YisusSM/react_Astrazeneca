@@ -1,5 +1,5 @@
 import axios from "axios";
-import { saveAllServices, saveGroupsInsights, saveGroupsInsights, saveServicesByGroup,saveServiceInfo } from "@/actions/services";
+import { saveAllServices, saveGroupsInsights, saveServicesByGroup,saveServiceInfo } from "@/actions/services";
 
 
 export const status = async () => {
