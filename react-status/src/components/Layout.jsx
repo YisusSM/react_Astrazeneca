@@ -104,7 +104,7 @@ export default function Layout({ children }) {
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <span class="material-symbols-outlined cursor-pointer text-gray-400 hover:text-white pr-4" onClick={handleLogOut}>
+              <span className="material-symbols-outlined cursor-pointer text-gray-400 hover:text-white pr-4" onClick={handleLogOut}>
                 logout
               </span>
               <button
