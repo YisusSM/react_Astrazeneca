@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 export const PrivateRoute = ({ children }) => {
     const router = useRouter();
     const dispatch = useDispatch();
+    
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (!user) {

@@ -14,7 +14,7 @@ export default function Layout({ children }) {
   }
   const handleLogOut = () => {
     dispatch(logOut());
-    
+
   }
 
   return (
@@ -75,12 +75,12 @@ export default function Layout({ children }) {
               <div className="flex flex-shrink-0 items-center">
                 <img
                   className="block h-8 w-auto lg:hidden"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                  src="https://th.bing.com/th/id/R.4faf3b550b7643cf9b9bce7895be80e5?rik=nQTXZ8OhNor56A&pid=ImgRaw&r=0"
                   alt="Your Company"
                 />
                 <img
                   className="hidden h-8 w-auto lg:block"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                  src="https://th.bing.com/th/id/R.4faf3b550b7643cf9b9bce7895be80e5?rik=nQTXZ8OhNor56A&pid=ImgRaw&r=0"
                   alt="Your Company"
                 />
               </div>
