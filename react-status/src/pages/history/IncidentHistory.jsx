@@ -17,7 +17,7 @@ export default function IncidentHistory() {
 
   const statusColor = {
     green: "text-green-500",
-    yellow: "text-yellow-400",
+    yellow: "text-yellow-600",
     red: "text-red-600",
   };
 

@@ -24,9 +24,9 @@ export default function DashboardTable() {
   }, [query])
 
   const statusColor = {
-    green: 'bg-green-500',
-    yellow: 'bg-yellow-400',
-    red: 'bg-red-600'
+    green: '#06d6a0',
+    yellow: '#ffd166',
+    red: '#ef476f'
   }
 
   const onRowClick = (row) => {
@@ -44,7 +44,7 @@ export default function DashboardTable() {
         <td className="whitespace-nowrap px-6 py-4 font-medium">{ service.name }</td>
         <td className="whitespace-nowrap px-6 py-4">{ service.group }</td>
         <td className="whitespace-nowrap px-6 py-4 flex justify-center">
-          <div className={`shadow-md rounded-full h-6 w-6 ${statusColor[service.current_system_status]} border-solid border-1 border-gray-950`}>
+          <div style={{backgroundColor: statusColor[service.current_system_status]}} className='shadow-md rounded-full h-6 w-6 border-solid border-1 border-gray-950'>
           </div>
         </td>
       </tr>
