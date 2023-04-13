@@ -1,5 +1,5 @@
 import { io } from 'socket.io-client'
 
-const URL = process.env.IP_CONFIG
+const URL = process.env.NEXT_PUBLIC_IP_CONFIG
 
-export const socket = io('http://localhost:3001')
+export const socket = io(URL)

@@ -3,7 +3,6 @@ import { useForm } from '@/hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '@/helpers/auth';
 import { PublicRoute } from '@/components/PublicRoute';
-import LoadingScreen from '@/components/loaded/Loaded';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -27,6 +26,7 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
+      <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="AstraNow"></img>
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h3 className='text-black mx-auto text-center'>Ingreso</h3>
           <form onSubmit={handleLogin} className='space-y-6'>
