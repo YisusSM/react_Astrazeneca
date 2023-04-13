@@ -1,8 +1,8 @@
 
-import Link from 'next/link'
 import { useSelector } from 'react-redux';
 import LoadingScreen from './loaded/Loaded';
 import { PrivateRoute } from '@/components/PrivateRoute';
+import { Groups } from '@/components/Home/Groups';
 
 
 export default function Home() {
@@ -13,9 +13,8 @@ export default function Home() {
     return <LoadingScreen />
   }
   return (
-    <main className="flex min-h-sc  reen flex-col items-center justify-between p-24 sm:text-center">
-      <Link href='/login'> Go to Login </Link>
-    </main>
+      <Groups/>
+    
 
   )
 }

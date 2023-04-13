@@ -1,18 +1,20 @@
 import axios from "axios";
-import io from 'socket.io-client';
-import { saveServiceInfo, saveServicesByGroup } from "@/actions/services";
+import { saveAllServices, saveGroupsInsights, saveGroupsInsights, saveServicesByGroup,saveServiceInfo } from "@/actions/services";
 
-export const status = async ()=>{
+
+export const status = async () => {
     const res = await axios.get(process.env.IP_CONFIG);
     return res;
 
 }
-export const getGroups = async ()=>{
-    const res = await axios.get(process.env.API_GROUPS);
-    return res;
+export const getGroups = () => {
+    return async (dispatch) => {
+        const res = await axios.get('http://localhost:3001/services/groupInsights');
+        dispatch(saveGroupsInsights(res.data))
+    }
 }
 
-export const listenStatus = async ()=>{
+export const listenStatus = async () => {
 
 }
 

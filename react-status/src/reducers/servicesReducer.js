@@ -3,6 +3,7 @@ import { types } from "../types/types";
 const initialState = {
     data: [],
     servicesByGroup: [],
+    getServicesGroupInsight: [],
     serviceInfo: {}
 }
 
@@ -20,6 +21,7 @@ export const servicesReducer = (state = initialState, action) => {
         ...action.payload
       }
 
+    case types.getServicesGroupInsight:
     case types.getServiceInfo:
       return {
         ...state,
