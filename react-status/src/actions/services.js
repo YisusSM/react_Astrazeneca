@@ -27,3 +27,10 @@ export const saveServiceInfo = (serviceInfo) => ({
     serviceInfo
   }
 })
+
+export const saveIncidentHistory = (incidentHistory) => ({
+  type: types.getIncidentHistory,
+  payload: {
+    incidentHistory
+  }
+})

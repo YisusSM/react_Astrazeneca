@@ -1,5 +1,5 @@
 import axios from "axios";
-import { saveAllServices, saveGroupsInsights, saveServicesByGroup,saveServiceInfo } from "@/actions/services";
+import { saveAllServices, saveGroupsInsights, saveServicesByGroup,saveServiceInfo, saveIncidentHistory } from "@/actions/services";
 
 
 export const status = async () => {
@@ -36,5 +36,12 @@ export const getServiceInfo = (name) => {
     return async (dispatch) => {
         const res = await axios.get(`http://localhost:3001/services/name/${name}`)
         dispatch(saveServiceInfo(res.data))
+    }
+}
+
+export const getIncidentHistory = () => {
+    return async (dispatch) => {
+        const res = await axios.get('http://localhost:3001/services/incidentHistory')
+        dispatch(saveIncidentHistory(res.data))
     }
 }

@@ -88,4 +88,3 @@ export default function DashboardTable() {
   )
 }
 DashboardTable.Auth = PrivateRoute
-

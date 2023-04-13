@@ -26,6 +26,6 @@ export const types = {
     getAllServices: '[services] getting all services',
     getServicesByGroup: '[services] getting services by group',
     getServicesGroupInsight:'[services] Getting Groups Insight',
-    getServiceInfo: '[services] getting service info'
-
+    getServiceInfo: '[services] getting service info',
+    getIncidentHistory: '[services] getting incident history'
 }
