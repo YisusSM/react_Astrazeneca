@@ -13,3 +13,10 @@ export const saveServicesByGroup = (servicesByGroup) => ({
     servicesByGroup
   }
 })
+
+export const saveServiceInfo = (serviceInfo) => ({
+  type: types.getServiceInfo,
+  payload: {
+    serviceInfo
+  }
+})

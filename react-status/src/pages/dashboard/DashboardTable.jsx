@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import styles from '@/styles/dashboard.module.css'
 import { socket } from "@/helpers/socket"
+import { useRouter } from "next/router"
 
 export default function DashboardTable() {
   const dispatch = useDispatch()
@@ -15,6 +16,8 @@ export default function DashboardTable() {
       dispatch(getServicesByGroup('DEV'))
     })
   }, [])
+
+  const router = useRouter()
 
   const statusColor = {
     green: 'bg-green-500',
@@ -37,6 +40,7 @@ export default function DashboardTable() {
   }
 
   const onRowClick = (row) => {
+
     console.log(row)
   }
 

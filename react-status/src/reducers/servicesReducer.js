@@ -2,7 +2,8 @@ import { types } from "../types/types";
 
 const initialState = {
     data: [],
-    servicesByGroup: []
+    servicesByGroup: [],
+    serviceInfo: {}
 }
 
 export const servicesReducer = (state = initialState, action) => {
@@ -14,6 +15,12 @@ export const servicesReducer = (state = initialState, action) => {
       }
 
     case types.getServicesByGroup:
+      return {
+        ...state,
+        ...action.payload
+      }
+
+    case types.getServiceInfo:
       return {
         ...state,
         ...action.payload
