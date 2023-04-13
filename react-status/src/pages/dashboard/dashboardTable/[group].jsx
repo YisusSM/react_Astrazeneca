@@ -8,16 +8,20 @@ import { useRouter } from "next/router"
 export default function DashboardTable() {
   const dispatch = useDispatch()
   const { servicesByGroup } = useSelector(state => state.services)
+  const router = useRouter()
+  const query = router.query.group
 
   useEffect(() => {
-    dispatch(getServicesByGroup('DEV'))
+    if (!query) {
+      return
+    }
+
+    dispatch(getServicesByGroup(query))
 
     socket.on('service:update', () => {
-      dispatch(getServicesByGroup('DEV'))
+      dispatch(getServicesByGroup(query))
     })
-  }, [])
-
-  const router = useRouter()
+  }, [query])
 
   const statusColor = {
     green: 'bg-green-500',
@@ -25,32 +29,22 @@ export default function DashboardTable() {
     red: 'bg-red-600'
   }
 
-  const drawServiceHistory = (service) => {
-    return service.history.map((h, index) => {
-      return (
-        <div key={index}>
-          <h4>Date { h.date }</h4>
-          <h4>Reason { h.reason }</h4>
-          <h4>System status { h.system_status }</h4>
-          <h4>Status { h.status }</h4>
-          <h4>Inciden Number { h.incident_number }</h4>
-        </div>
-      )
-    })
-  }
-
   const onRowClick = (row) => {
-
-    console.log(row)
+    router.push({
+      pathname: '/dashboard/serviceInfo/[name]',
+      query: {
+        name: row
+      }
+    })
   }
 
   const drawItems = servicesByGroup.map(service => {
     return (
-      <tr onClick={ () => {onRowClick(service.name) } } key={ service.name } className="border-b border-neutral-100 hover:bg-neutral-200 bg-neutral-50 text-neutral-800 dark:bg-neutral-50">
+      <tr onClick={ () => {onRowClick(service.name) } } key={ service.name } className="border-b border-neutral-200 hover:bg-neutral-200 bg-neutral-50 text-neutral-800 dark:bg-neutral-50">
         <td className="whitespace-nowrap px-6 py-4 font-medium">{ service.name }</td>
         <td className="whitespace-nowrap px-6 py-4">{ service.group }</td>
         <td className="whitespace-nowrap px-6 py-4 flex justify-center">
-          <div className={`rounded-full h-6 w-6 ${statusColor[service.current_system_status]} border-solid border-1 border-gray-950`}>
+          <div className={`shadow-md rounded-full h-6 w-6 ${statusColor[service.current_system_status]} border-solid border-1 border-gray-950`}>
           </div>
         </td>
       </tr>
@@ -67,7 +61,7 @@ export default function DashboardTable() {
         <div className="sm:-mx-6 lg:-mx-6">
           <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
             <div className="overflow-x-auto">
-              <table className="min-w-full text-center text-sm font-light">
+              <table className="table-fixed min-w-full text-center text-sm font-light text-neutral-800">
                 <thead className="border-b font-medium dark:border-neutral-500">
                   <tr>
                     <th scope="col" className="px-6 py-4">
