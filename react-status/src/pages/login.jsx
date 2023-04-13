@@ -53,7 +53,7 @@ export default function Login() {
             <div className="form-group">
               <input
                 type="submit"
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#ebbf04] hover:bg-[#EBAA04] focus:outline focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
                 value="Login"
               />
             </div>
