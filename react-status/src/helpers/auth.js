@@ -19,3 +19,12 @@ export const login = (email, password) => {
             });
     }
 }
+
+export const logOut = () => {
+    return (dispatch) => {
+        auth.signOut();
+        dispatch(authLogOut())
+    }
+
+
+}

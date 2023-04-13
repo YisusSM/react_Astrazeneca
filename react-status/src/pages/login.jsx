@@ -3,12 +3,13 @@ import { useForm } from '@/hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '@/helpers/auth';
 import { PublicRoute } from '@/components/PublicRoute';
+import LoadingScreen from '@/components/loaded/Loaded';
 
 export default function Login() {
   const dispatch = useDispatch();
   const [formLoginValues, handleLoginInputChange] = useForm({
-    lEmail: 'jesussm_0001@hotmail.com',
-    lPassword: 'notiene'
+    lEmail: '',
+    lPassword: ''
   });
   const { uid } = useSelector(state => state.auth)
   const { lEmail, lPassword } = formLoginValues;
@@ -19,10 +20,9 @@ export default function Login() {
     dispatch(login(lEmail, lPassword));
   }
 
-  if (!uid) {
+  if (uid) {
     return null
   }
-
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">

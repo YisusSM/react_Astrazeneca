@@ -1,3 +1,4 @@
+import { PrivateRoute } from "@/components/PrivateRoute";
 import { getServiceInfo } from "@/helpers/axios";
 import { socket } from "@/helpers/socket";
 import { useRouter } from "next/router";
@@ -157,3 +158,4 @@ export default function ServiceInfo(params) {
     </>
   );
 }
+ServiceInfo.Auth = PrivateRoute

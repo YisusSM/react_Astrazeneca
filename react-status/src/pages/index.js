@@ -1,8 +1,8 @@
 
 import { useSelector } from 'react-redux';
-import LoadingScreen from './loaded/Loaded';
+import LoadingScreen from '../components/loaded/Loaded';
 import { PrivateRoute } from '@/components/PrivateRoute';
-import { Groups } from '@/components/Home/Groups';
+import { Groups } from '../components/Home/Groups';
 
 
 export default function Home() {
@@ -12,10 +12,6 @@ export default function Home() {
   if (uid == null) {
     return <LoadingScreen />
   }
-  return (
-      <Groups/>
-    
-
-  )
+  return <Groups/>
 }
 Home.Auth = PrivateRoute

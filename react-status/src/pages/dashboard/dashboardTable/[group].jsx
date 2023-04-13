@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { socket } from "@/helpers/socket"
 import { useRouter } from "next/router"
+import { PrivateRoute } from "@/components/PrivateRoute"
 
 export default function DashboardTable() {
   const dispatch = useDispatch()
@@ -86,3 +87,5 @@ export default function DashboardTable() {
     </>
   )
 }
+DashboardTable.Auth = PrivateRoute
+

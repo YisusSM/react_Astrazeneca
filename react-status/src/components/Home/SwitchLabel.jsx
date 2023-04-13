@@ -2,28 +2,17 @@ import React from 'react'
 
 export const SwitchLabel = () => {
     return (
-        <div class="inline-flex items-center">
-            <div class="relative inline-block h-4 w-8 cursor-pointer rounded-full">
-                <input
-                    id="auto-update"
-                    type="checkbox"
-                    class="peer absolute h-4 w-8 cursor-pointer appearance-none rounded-full bg-blue-gray-100 transition-colors duration-300 checked:bg-pink-500 peer-checked:border-pink-500 peer-checked:before:bg-pink-500"
-                />
-                <label
-                    for="auto-update"
-                    class="before:content[''] absolute top-2/4 -left-1 h-5 w-5 -translate-y-2/4 cursor-pointer rounded-full border border-blue-gray-100 bg-white shadow-md transition-all duration-300 before:absolute before:top-2/4 before:left-2/4 before:block before:h-10 before:w-10 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity hover:before:opacity-10 peer-checked:translate-x-full peer-checked:border-pink-500 peer-checked:before:bg-pink-500"
-                >
-                    <div
-                        class="top-2/4 left-2/4 inline-block -translate-x-2/4 -translate-y-2/4 rounded-full p-5"
-                        data-ripple-dark="true"
-                    ></div>
-                </label>
-            </div>
-            <label
-                for="auto-update"
-                class="mt-px ml-3 mb-0 cursor-pointer select-none font-light text-gray-700"
-            >
-            </label>
-        </div>
+
+        <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" class="sr-only peer" />
+            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4
+             peer-focus:ring-yellow-30 dark:peer-focus:ring-yellow-800 rounded-full peer dark:bg-gray-700
+              peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] 
+              after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 
+              after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 
+              peer-checked:bg-yellow-400"></div>
+            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
+        </label>
+
     )
 }

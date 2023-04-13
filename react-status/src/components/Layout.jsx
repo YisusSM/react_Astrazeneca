@@ -1,14 +1,20 @@
-import { useSelector } from "react-redux";
+import { logOut } from "@/helpers/auth";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Layout({ children }) {
   const { uid } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const closeToast = () => {
 
   }
 
-  if (uid) {
+  if (!uid) {
     return <main>{children}</main>;
+  }
+  const handleLogOut = () => {
+    dispatch(logOut());
+    
   }
 
   return (
@@ -92,6 +98,9 @@ export default function Layout({ children }) {
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <span class="material-symbols-outlined cursor-pointer text-gray-400 hover:text-white" onClick={handleLogOut}>
+                logout
+              </span>
               <button
                 type="button"
                 className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
