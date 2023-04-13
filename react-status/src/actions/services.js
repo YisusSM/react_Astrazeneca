@@ -20,3 +20,10 @@ export const saveGroupsInsights = (getServicesGroupInsight) => ({
     getServicesGroupInsight
   }
 })
+
+export const saveServiceInfo = (serviceInfo) => ({
+  type: types.getServiceInfo,
+  payload: {
+    serviceInfo
+  }
+})
